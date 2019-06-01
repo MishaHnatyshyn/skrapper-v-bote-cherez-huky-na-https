@@ -1,0 +1,23 @@
+{
+  "name": "scrapperbothookshttps",
+  "version": "1.0.0",
+  "description": "",
+  "main": "getGroupLinkByName.js",
+  "dependencies": {
+    "request": "2.88.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MishaHnatyshyn/skrapper-v-bote-cherez-huky-na-https.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MishaHnatyshyn/skrapper-v-bote-cherez-huky-na-https/issues"
+  },
+  "homepage": "https://github.com/MishaHnatyshyn/skrapper-v-bote-cherez-huky-na-https#readme"
+}
