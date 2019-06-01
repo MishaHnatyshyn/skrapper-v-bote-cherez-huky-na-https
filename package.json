@@ -1,0 +1,23 @@
+{
+  "name": "skrapper-v-bote-cherez-huky-na-https",
+  "version": "1.0.0",
+  "description": "",
+  "main": "scrapper/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MishaHnatyshyn/skrapper-v-bote-cherez-huky-na-https.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MishaHnatyshyn/skrapper-v-bote-cherez-huky-na-https/issues"
+  },
+  "homepage": "https://github.com/MishaHnatyshyn/skrapper-v-bote-cherez-huky-na-https#readme",
+  "dependencies": {
+    "jsdom": "^15.1.1",
+    "request-promise": "^4.2.4"
+  }
+}
