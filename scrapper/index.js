@@ -40,8 +40,49 @@ const getFullSchedule = (dom) => {
   const firstWeekSchedule = formScheduleFromTable(firstWeek);
   const secondWeekSchedule = formScheduleFromTable(secondWeek);
   return { firstWeekSchedule, secondWeekSchedule }
-}
+};
+const beautyfy = (arr) => {
+	let str = ``;
+	let count = 0
+  for(let i in arr){
+      for (let k in arr[i]) {
+          if (weekDays.includes(k)) {
+              count++;
+              str += `\n\n**` + k.toUpperCase() + `**` + `\n`
+              for (let m in arr[i][k]) {
+                  for (let j in arr[i][k][m]) {
+                      if (j === 'subject') {
+                          str += `–––––––––––\n`
+						  let l = 1 + parseInt(m);
+						  console.log(l)
+						  str += j.toUpperCase()+ ` `+ l + ` : ` + arr[i][k][m][j] + `\n`
+                      }
 
+                      if (arr[i][k][m][j]) {
+                          str += j.toUpperCase() + ` : ` + arr[i][k][m][j] + `\n`
+                      }
+                  }
+              }
+          }
+          
+	  } if(!count){
+		  for(let p in arr[i]){
+			  console.log(p)
+			  if(p === 'subject'){
+				  str += `–––––––––––\n`
+                  let l = 1 + parseInt(i);
+				  console.log(l)
+				  str += p.toUpperCase()+` `+ l + ` : ` + arr[i][p]+`\n`
+			  }
+			  else if(arr[i][p]){
+				  str += p.toUpperCase() + ` : ` + arr[i][p]+`\n`
+			  }
+		  }
+	  }
+	
+  }
+  return str
+}
 const getCurrDaySchedule = (dom) => {
   const cells = [...dom.window.document.querySelectorAll('.day_backlight')].map(parseCell)
   return cells
@@ -62,7 +103,7 @@ const functions = {
 
 const scrapper = async (url, type) => {
   const dom = await getDOM(url)
-  return functions[type](dom)
+  return beautyfy(functions[type](dom))
 }
 
 module.exports = scrapper
