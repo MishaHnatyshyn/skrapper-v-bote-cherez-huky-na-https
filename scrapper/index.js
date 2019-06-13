@@ -70,12 +70,12 @@ const beautyfy = (arr) => {
 	arr.forEach((elem) => {
 		Object.keys(elem).forEach((el) => {
 			if (weekDays.includes(el)) {
-				str += `\n\n**` + el.toUpperCase() + `**` + `\n`л
+				str += `\n\n**` + el.toUpperCase() + `**` + `\n`
 				str += parseDay(elem, el);
 			}
 		})
-	
-		
+
+
 		// if(!count){
 	// 	  for(let p in arr[i]){
 	// 	      console.log(p)
