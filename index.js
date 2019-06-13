@@ -1,4 +1,5 @@
 const Telegraf = require('telegraf');
+const http = require('http');
 const bot = new Telegraf('894715235:AAGLbrJlbspsgQFN30CdDLgI4ScWLUQg59s'); // Создаем нашего бота
 //bot.telegram.setWebhook(`https://webhook.site/47bb138c-0721-4921-9b27-6f60b1fbd360/bot894715235:AAGLbrJlbspsgQFN30CdDLgI4ScWLUQg59s`);
 const scrapper = require('./scrapper');
@@ -35,3 +36,6 @@ bot.command('day',async (ctx) => {
 	ctx.reply(JSON.stringify(currDay))
 });
 bot.launch();
+
+
+http.createServer().listen(port || 8080)
