@@ -67,31 +67,36 @@ function parseDay(elem, el) {
 
 const beautyfy = (arr) => {
 	let str = ``;
-	arr.forEach((elem) => {
-		Object.keys(elem).forEach((el) => {
-			if (weekDays.includes(el)) {
-				str += `\n\n**` + el.toUpperCase() + `**` + `\n`
-				str += parseDay(elem, el);
-			}
-		})
+	try{
+    arr.forEach((elem) => {
+      Object.keys(elem).forEach((el) => {
+        if (weekDays.includes(el)) {
+          str += `\n\n**` + el.toUpperCase() + `**` + `\n`
+          str += parseDay(elem, el);
+        }
+      })
 
 
-		// if(!count){
-	// 	  for(let p in arr[i]){
-	// 	      console.log(p)
-	// 	      if(p === 'subject'){
-	// 	          str += `–––––––––––\n`
-	// 	            let l = 1 + parseInt(i);
-	// 	          console.log(l)
-	// 	          str += p.toUpperCase()+` `+ l + ` : ` + arr[i][p]+`\n`
-	// 	      }
-	// 	      else if(arr[i][p]){
-	// 	          str += p.toUpperCase() + ` : ` + arr[i][p]+`\n`
-	// 	      }
-	// 	  }
-	// 		str += parseDay();
-	//   }
+      // if(!count){
+      // 	  for(let p in arr[i]){
+      // 	      console.log(p)
+      // 	      if(p === 'subject'){
+      // 	          str += `–––––––––––\n`
+      // 	            let l = 1 + parseInt(i);
+      // 	          console.log(l)
+      // 	          str += p.toUpperCase()+` `+ l + ` : ` + arr[i][p]+`\n`
+      // 	      }
+      // 	      else if(arr[i][p]){
+      // 	          str += p.toUpperCase() + ` : ` + arr[i][p]+`\n`
+      // 	      }
+      // 	  }
+      // 		str += parseDay();
+      //   }
     });
+  } catch (e) {
+
+  }
+
   return str;
 };
 const getCurrDaySchedule = (dom) => {
