@@ -3,6 +3,7 @@ const bot = new Telegraf('894715235:AAGLbrJlbspsgQFN30CdDLgI4ScWLUQg59s'); // С
 //bot.telegram.setWebhook(`https://webhook.site/47bb138c-0721-4921-9b27-6f60b1fbd360/bot894715235:AAGLbrJlbspsgQFN30CdDLgI4ScWLUQg59s`);
 const scrapper = require('./scrapper');
 const getGroupLinkByName = require('./getGroupLinkByName')
+const port = process.env.PORT;
 
 //ІП-72
 bot.start((ctx) => ctx.reply('Welcome'));
