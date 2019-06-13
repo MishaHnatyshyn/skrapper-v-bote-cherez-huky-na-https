@@ -41,48 +41,59 @@ const getFullSchedule = (dom) => {
   const secondWeekSchedule = formScheduleFromTable(secondWeek);
   return { firstWeekSchedule, secondWeekSchedule }
 };
+
+function parseDetails(element, e) {
+	let str =``;
+      if (e === 'subject') {
+          str += `–––––––––––\n`;
+          str += e.toUpperCase() + ` ` + ` : ` + element[e] + `\n`
+      }
+      else if (e) {
+          str += e.toUpperCase() + ` : ` + element[e] + `\n`
+      }
+	return str;
+}
+
+
+function parseDay(elem, el) {
+  let str =``;
+	elem[el].forEach((element) => {
+		Object.keys(element || {}).forEach((e) => {
+		  str += parseDetails(element, e);
+		})
+	});
+    return str;
+}
+
 const beautyfy = (arr) => {
 	let str = ``;
-	let count = 0
-  for(let i in arr){
-      for (let k in arr[i]) {
-          if (weekDays.includes(k)) {
-              count++;
-              str += `\n\n**` + k.toUpperCase() + `**` + `\n`
-              for (let m in arr[i][k]) {
-                  for (let j in arr[i][k][m]) {
-                      if (j === 'subject') {
-                          str += `–––––––––––\n`
-						  let l = 1 + parseInt(m);
-						  console.log(l)
-						  str += j.toUpperCase()+ ` `+ l + ` : ` + arr[i][k][m][j] + `\n`
-                      }
-
-                      if (arr[i][k][m][j]) {
-                          str += j.toUpperCase() + ` : ` + arr[i][k][m][j] + `\n`
-                      }
-                  }
-              }
-          }
-          
-	  } if(!count){
-		  for(let p in arr[i]){
-			  console.log(p)
-			  if(p === 'subject'){
-				  str += `–––––––––––\n`
-                  let l = 1 + parseInt(i);
-				  console.log(l)
-				  str += p.toUpperCase()+` `+ l + ` : ` + arr[i][p]+`\n`
-			  }
-			  else if(arr[i][p]){
-				  str += p.toUpperCase() + ` : ` + arr[i][p]+`\n`
-			  }
-		  }
-	  }
+	arr.forEach((elem) => {
+		Object.keys(elem).forEach((el) => {
+			if (weekDays.includes(el)) {
+				str += `\n\n**` + el.toUpperCase() + `**` + `\n`л
+				str += parseDay(elem, el);
+			}
+		})
 	
-  }
-  return str
-}
+		
+		// if(!count){
+	// 	  for(let p in arr[i]){
+	// 	      console.log(p)
+	// 	      if(p === 'subject'){
+	// 	          str += `–––––––––––\n`
+	// 	            let l = 1 + parseInt(i);
+	// 	          console.log(l)
+	// 	          str += p.toUpperCase()+` `+ l + ` : ` + arr[i][p]+`\n`
+	// 	      }
+	// 	      else if(arr[i][p]){
+	// 	          str += p.toUpperCase() + ` : ` + arr[i][p]+`\n`
+	// 	      }
+	// 	  }
+	// 		str += parseDay();
+	//   }
+    });
+  return str;
+};
 const getCurrDaySchedule = (dom) => {
   const cells = [...dom.window.document.querySelectorAll('.day_backlight')].map(parseCell)
   return cells

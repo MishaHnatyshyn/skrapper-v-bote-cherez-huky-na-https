@@ -21,7 +21,7 @@ bot.on('sticker', (ctx) => ctx.reply('Veeery funny'));
 bot.command('schedule',async (ctx) => {
 	console.log(ctx.message.text+1);
 	const currDay = await scrapper('http://rozklad.kpi.ua/Schedules/ViewSchedule.aspx?g=bb920257-c159-4dba-b630-48485f153785', 'full')
-	ctx.reply(currDay)
+	ctx.reply(JSON.stringify(currDay))
 });
 bot.command('week',async (ctx) => {
 	console.log(ctx.message.text+2);
@@ -31,6 +31,6 @@ bot.command('week',async (ctx) => {
 bot.command('day',async (ctx) => {
 	console.log(ctx.message.text+3);
 	const currDay = await scrapper('http://rozklad.kpi.ua/Schedules/ViewSchedule.aspx?g=bb920257-c159-4dba-b630-48485f153785', 'day')
-	ctx.reply(currDay)
+	ctx.reply(JSON.stringify(currDay))
 });
 bot.launch();
